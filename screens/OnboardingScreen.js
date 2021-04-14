@@ -5,7 +5,7 @@ import Onboarding from 'react-native-onboarding-swiper';
 
 const Skip = ({...props}) => {
     return (
-        <Button title='Skip' color="#000000" />
+        <Button title='Skip' color="#000000" {...props} />
     );
 };
 const Next = ({...props}) => {
