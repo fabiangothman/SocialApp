@@ -75,7 +75,8 @@ export default AuthStack;
 
 const styles = StyleSheet.create({
     baseStyle: {
-        borderWidth: 1,
-        borderColor: "#ffffff"
+        borderWidth: 5,
+        borderColor: "#ff0000",
+        backgroundColor: "#808080"
     }
 });
