@@ -16,6 +16,9 @@ This app was built using expo
 - If not, you can update the packages by using:
     - yarn update
 
+## Using Firebase
+- yarn add @react-native-firebase/app
+
 ## Run app
 To run your project, navigate to the directory and run one of the following yarn commands.
 - cd react-native-course

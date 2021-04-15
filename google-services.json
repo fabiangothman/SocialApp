@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "826391558870",
+    "project_id": "socialapp-ea282",
+    "storage_bucket": "socialapp-ea282.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:826391558870:android:014f621e2e1b727a1be777",
+        "android_client_info": {
+          "package_name": "com.fmurillo.SocialApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "826391558870-2tkov3oumckki8tvnlg2k4v40glsp3bd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY7jaLmFHjawRtOMxrRylin5pAzCaaNjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "826391558870-2tkov3oumckki8tvnlg2k4v40glsp3bd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "826391558870-8pqge7id1v6h2i7q6e4u4juq3clmse6v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fmurillo.SocialApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
