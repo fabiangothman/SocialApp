@@ -1,5 +1,5 @@
 //import React, {useState} from 'react';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useFonts } from 'expo-font';
@@ -17,7 +17,7 @@ const LoginScreen = ({navigation}) => {
         isValidPassword: true
     });
 
-    const {login} = useContext(AuthContext);
+    const {login, googleLogin} = useContext(AuthContext);
 
     const [loaded] = useFonts({
         "Kufam-SemiBoldItalic": require('../assets/fonts/Kufam-SemiBoldItalic.ttf'),
@@ -52,6 +52,7 @@ const LoginScreen = ({navigation}) => {
             });
     }
 
+    
     return (
         <View style={styles.container}>
             <Image style={styles.logo} source={require("../assets/rn-social-logo.png")} />
@@ -97,19 +98,23 @@ const LoginScreen = ({navigation}) => {
                 <Text style={styles.navButtonText}>Forgot password?</Text>
             </TouchableOpacity>
 
-            <SocialButton
-                buttonTitle="Sign in with Facebook"
-                btnType="facebook"
-                color="#4867aa"
-                backgroundColor="#e6eaf4"
-                onPress={() => {}} />
-                
-            <SocialButton
-                buttonTitle="Sign in with Google"
-                btnType="google"
-                color="#de4d41"
-                backgroundColor="#f5e7ea"
-                onPress={() => {}} />
+            {Platform.OS == 'android' ? (
+                <View>
+                    <SocialButton
+                        buttonTitle="Sign in with Facebook"
+                        btnType="facebook"
+                        color="#4867aa"
+                        backgroundColor="#e6eaf4"
+                        onPress={() => {}} />
+                        
+                    <SocialButton
+                        buttonTitle="Sign in with Google"
+                        btnType="google"
+                        color="#de4d41"
+                        backgroundColor="#f5e7ea"
+                        onPress={() =>googleLogin()} />
+                </View>
+            ) : null }
 
             <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate("Signup")}>
                 <Text style={styles.navButtonText}>Don't have an account? Create here</Text>

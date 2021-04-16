@@ -1,6 +1,6 @@
 //import React, {useState} from 'react';
 import React, { useContext } from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, Image, StyleSheet, Platform} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import { useFonts } from 'expo-font';
 
@@ -130,19 +130,23 @@ const SignupScreen = ({navigation}) => {
                 <Text style={styles.color_textPrivate}>.</Text>
             </View>
 
-            <SocialButton
-                buttonTitle="Sign up with Facebook"
-                btnType="facebook"
-                color="#4867aa"
-                backgroundColor="#e6eaf4"
-                onPress={() => {}} />
-                
-            <SocialButton
-                buttonTitle="Sign up with Google"
-                btnType="google"
-                color="#de4d41"
-                backgroundColor="#f5e7ea"
-                onPress={() => {}} />
+            {Platform.OS == 'android' ? (
+                <View>
+                    <SocialButton
+                        buttonTitle="Sign up with Facebook"
+                        btnType="facebook"
+                        color="#4867aa"
+                        backgroundColor="#e6eaf4"
+                        onPress={() => {}} />
+                        
+                    <SocialButton
+                        buttonTitle="Sign up with Google"
+                        btnType="google"
+                        color="#de4d41"
+                        backgroundColor="#f5e7ea"
+                        onPress={() => {}} />
+                </View>
+            ) : null }
 
             <TouchableOpacity style={styles.navButton} onPress={() => navigation.navigate("Login")}>
                 <Text style={styles.navButtonText}>Already have an account? Sign in here</Text>

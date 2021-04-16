@@ -1,16 +1,16 @@
 import React from 'react';
 import {TextInput, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {windowWidth, windowHeight} from '../utils/Dimentions';
-//import { useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const FormInput = ({labelValue, placeholderText, iconType, ...props}) => {
-    /*const [loaded] = useFonts({
+    const [loaded] = useFonts({
         "Lato-Regular": require('../assets/fonts/Lato-Regular.ttf'),
     });
     if(!loaded)
-        return null;*/
+        return null;
 
     return (
         <View style={styles.inputContainer}>
