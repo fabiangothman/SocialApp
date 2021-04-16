@@ -1,14 +1,17 @@
 import React, {useContext} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+//import firebaseApp, { Auth } from '../server/firebase';
+import { AuthContext } from '../navigation/AuthProvider';
 
 import FormButton from '../components/FormButton';
 
 const HomeScreen = () => {
+    const {user, logout} = useContext(AuthContext);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Welcome</Text>
-            <FormButton buttonTitle='Logout' onPress={() => {}} />
+            <Text style={styles.text}>Welcome {user.uid}</Text>
+            <FormButton buttonTitle='Logout' onPress={() => logout()} />
         </View>
     );
 };
