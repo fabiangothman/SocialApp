@@ -34,3 +34,11 @@ To run your project, navigate to the directory and run one of the following yarn
 - expo build:web (Generates a web-build folder)
     - You can run a local server via: npx serve web-build
     - Or upload it to a cloud server via: https://docs.expo.io/distribution/publishing-websites/
+
+## Bugs/Errors prevent
+- The library "react-native-action-button" used into the project needs some fixes to prevent errors in the button normal working:
+    - Go to node_modules/react-native-action-button/ActionButton.js
+    - Rename the method "componentWillReceiveProps" to "UNSAFE_componentWillReceiveProps"
+    - Into the method "animateButton" and "reset" add to the line "Animated.spring" the property "useNativeDriver: false", like this:
+        - Animated.spring(this.anim, { toValue: X }).start();
+        - Animated.spring(this.anim, { toValue: X, useNativeDriver: false }).start();

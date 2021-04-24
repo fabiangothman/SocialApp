@@ -13,7 +13,7 @@ const Routes = () => {
     const [initializing, setInitializing] = useState(true);
     
     const onAuthStateChanged = (user) => {
-        alert(`Cambió el estado de Auth, cambiando state de Routes, user: ${user}`);
+        //alert(`Cambió el estado de Auth, cambiando state de Routes, user: ${user}`);
         setUser(user);
         if(initializing)
             setInitializing(false);
@@ -22,12 +22,11 @@ const Routes = () => {
     useEffect(() => {
         try{
             const subscriber = Auth.onAuthStateChanged(onAuthStateChanged);            
-            const {gUser} = GoogleSignIn.getCurrentUser();
+            /*const {gUser} = GoogleSignIn.getCurrentUser();
             if(gUser)
-                setUser(gUser);
+                setUser(gUser);*/
             return subscriber;   //Unsubscribe on unmount
         }catch(e){
-            console.log("Error when tried to refresh state onAuthStateChanged: ");
             console.log(e);
         }
     }, []);

@@ -6,7 +6,7 @@ import * as GoogleSignIn from 'expo-google-sign-in';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
-    alert(`Estado inicial del usuario: ${user}`);
+    //alert(`Estado inicial del usuario: ${user}`);
     const [user, setUser] = useState(null);
     
     _syncUserWithStateAsync = async () => {
@@ -29,7 +29,7 @@ export const AuthProvider = ({children}) => {
                 setUser(user);
             }
         } catch ({ message }) {
-          alert('login: Error:' + message);
+          //alert('login: Error:' + message);
         }
     };
 
@@ -56,10 +56,10 @@ export const AuthProvider = ({children}) => {
             logout: async(email, password) => {
                 try{
                     await Auth.signOut();
-                    await GoogleSignIn.signOutAsync();
+                    //await GoogleSignIn.signOutAsync();
                 }catch(e){
                     console.log("Error when tried to logout: ");
-                    console.log(e);alert(e);
+                    console.log(e);
                 }
             },
             googleLogin: async () => { 
@@ -72,6 +72,9 @@ export const AuthProvider = ({children}) => {
                     console.log(e);alert(e);
                 }
             },
+            facebookLogin: async () => {
+                //
+            }
         }}>
             {children}
         </AuthContext.Provider>

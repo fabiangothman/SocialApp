@@ -17,7 +17,7 @@ const LoginScreen = ({navigation}) => {
         isValidPassword: true
     });
 
-    const {login, googleLogin} = useContext(AuthContext);
+    const {login, googleLogin, facebookLogin} = useContext(AuthContext);
 
     const [loaded] = useFonts({
         "Kufam-SemiBoldItalic": require('../assets/fonts/Kufam-SemiBoldItalic.ttf'),
@@ -105,7 +105,7 @@ const LoginScreen = ({navigation}) => {
                         btnType="facebook"
                         color="#4867aa"
                         backgroundColor="#e6eaf4"
-                        onPress={() => {}} />
+                        onPress={() => facebookLogin()} />
                         
                     <SocialButton
                         buttonTitle="Sign in with Google"
