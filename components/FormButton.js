@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {windowWidth, windowHeight} from '../utils/Dimentions';
-//import { useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 
 const FormButton = ({buttonTitle, ...props}) => {
-    /*const [loaded] = useFonts({
+    const [loaded] = useFonts({
         "Lato-Regular": require('../assets/fonts/Lato-Regular.ttf'),
     });
     if(!loaded)
-        return null;*/
+        return null;
 
     return (
         <TouchableOpacity style={styles.buttonContainer} {...props}>

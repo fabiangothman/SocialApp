@@ -16,6 +16,9 @@ This app was built using expo
 - If not, you can update the packages by using:
     - yarn update
 
+## Using Firebase
+- yarn add @react-native-firebase/app
+
 ## Run app
 To run your project, navigate to the directory and run one of the following yarn commands.
 - cd react-native-course
@@ -31,3 +34,16 @@ To run your project, navigate to the directory and run one of the following yarn
 - expo build:web (Generates a web-build folder)
     - You can run a local server via: npx serve web-build
     - Or upload it to a cloud server via: https://docs.expo.io/distribution/publishing-websites/
+
+## Bugs/Errors prevent
+- The library "react-native-action-button" used into the project needs some fixes to prevent errors in the button normal working:
+    - Go to node_modules/react-native-action-button/ActionButton.js
+    - Rename the method "componentWillReceiveProps" to "UNSAFE_componentWillReceiveProps"
+    - Into the method "animateButton" and "reset" add to the line "Animated.spring" the property "useNativeDriver: false", like this:
+        - Animated.spring(this.anim, { toValue: X }).start();
+        - Animated.spring(this.anim, { toValue: X, useNativeDriver: false }).start();
+- When send a new post to save image and returns a timer warning ("long period of time")
+    - Go to the "react-native" module Timer core:
+        - node_modules/react-native/Libraries/Core/Timers/JSTimers.js
+        - Change the property "MAX_TIMER_DURATION_MS" like this:
+        - const MAX_TIMER_DURATION_MS = 10000 * 10000;

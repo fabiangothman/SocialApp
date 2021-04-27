@@ -8,6 +8,8 @@ import SignupScreen from '../screens/SignupScreen';
 import AsyncStorage from '@react-native-community/async-storage';
 import { View, StyleSheet } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+//import * as AppAuth from 'expo-app-auth';
+//import * as GoogleSignIn from 'expo-google-sign-in';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +26,7 @@ const AuthStack = () => {
             setIsFirstLaunch(false);
         }
         });
+
     }, []);
     
     if(isFirstLaunch === null){
@@ -75,7 +78,8 @@ export default AuthStack;
 
 const styles = StyleSheet.create({
     baseStyle: {
-        borderWidth: 1,
-        borderColor: "#ffffff"
+        borderWidth: 5,
+        borderColor: "#ff0000",
+        backgroundColor: "#808080"
     }
 });

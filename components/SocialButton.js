@@ -1,16 +1,16 @@
 import React from 'react';
 import {Text, TouchableOpacity, StyleSheet, View} from 'react-native';
 import {windowWidth, windowHeight} from '../utils/Dimentions';
-//import { useFonts } from 'expo-font';
+import { useFonts } from 'expo-font';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const SocialButton = ({buttonTitle, btnType, color, backgroundColor, ...props}) => {
     let bgColor = backgroundColor;
-    /*const [loaded] = useFonts({
+    const [loaded] = useFonts({
         "Lato-Regular": require('../assets/fonts/Lato-Regular.ttf'),
     });
     if(!loaded)
-        return null;*/
+        return null;
 
     return (
         <TouchableOpacity style={[styles.buttonContainer, {backgroundColor: bgColor}]} {...props}>
