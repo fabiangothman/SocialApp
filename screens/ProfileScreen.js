@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-//import firebaseApp, { Auth } from '../server/firebase';
 import { AuthContext } from '../navigation/AuthProvider';
 
 import FormButton from '../components/FormButton';

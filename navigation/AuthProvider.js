@@ -1,6 +1,5 @@
 import React, { createContext, useState } from 'react';
-//import Auth from '@react-native-firebase/auth';
-import firebaseApp, { Auth } from '../server/firebase';
+import { firebaseApp } from '../server/firebase';
 import * as GoogleSignIn from 'expo-google-sign-in';
 
 export const AuthContext = createContext();
@@ -39,7 +38,7 @@ export const AuthProvider = ({children}) => {
             setUser,
             login: async(email, password) => {
                 try{
-                    await Auth.signInWithEmailAndPassword(email, password);
+                    await firebaseApp.auth().signInWithEmailAndPassword(email, password);
                 }catch(e){
                     console.log("Error when tried to login: ");
                     console.log(e);alert(e);
@@ -47,7 +46,7 @@ export const AuthProvider = ({children}) => {
             },
             register: async(email, password) => {
                 try{
-                    await Auth.createUserWithEmailAndPassword(email, password);
+                    await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
                 }catch(e){
                     console.log("Error when tried to register: ");
                     console.log(e);alert(e);
@@ -55,7 +54,7 @@ export const AuthProvider = ({children}) => {
             },
             logout: async(email, password) => {
                 try{
-                    await Auth.signOut();
+                    await firebaseApp.auth().signOut();
                     //await GoogleSignIn.signOutAsync();
                 }catch(e){
                     console.log("Error when tried to logout: ");
@@ -63,14 +62,14 @@ export const AuthProvider = ({children}) => {
                 }
             },
             googleLogin: async () => { 
-                try {
+                /*try {
                     GoogleSignIn.initAsync({
                         //sclientId: 'my-clientid',
                     });
                     signInAsync();
                 } catch (e) {
                     console.log(e);alert(e);
-                }
+                }*/
             },
             facebookLogin: async () => {
                 //

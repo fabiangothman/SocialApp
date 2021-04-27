@@ -42,3 +42,8 @@ To run your project, navigate to the directory and run one of the following yarn
     - Into the method "animateButton" and "reset" add to the line "Animated.spring" the property "useNativeDriver: false", like this:
         - Animated.spring(this.anim, { toValue: X }).start();
         - Animated.spring(this.anim, { toValue: X, useNativeDriver: false }).start();
+- When send a new post to save image and returns a timer warning ("long period of time")
+    - Go to the "react-native" module Timer core:
+        - node_modules/react-native/Libraries/Core/Timers/JSTimers.js
+        - Change the property "MAX_TIMER_DURATION_MS" like this:
+        - const MAX_TIMER_DURATION_MS = 10000 * 10000;

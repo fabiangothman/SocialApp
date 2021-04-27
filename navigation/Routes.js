@@ -1,8 +1,7 @@
 import React, {useContext, useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-//import Auth from '@react-native-firebase/auth';
-import firebaseApp, { Auth } from '../server/firebase';
-import {AuthContext} from './AuthProvider';
+import { firebaseApp } from '../server/firebase';
+import { AuthContext } from './AuthProvider';
 import * as GoogleSignIn from 'expo-google-sign-in';
 
 import AuthStack from './AuthStack';
@@ -21,12 +20,13 @@ const Routes = () => {
 
     useEffect(() => {
         try{
-            const subscriber = Auth.onAuthStateChanged(onAuthStateChanged);            
+            const subscriber = firebaseApp.auth().onAuthStateChanged(onAuthStateChanged);
             /*const {gUser} = GoogleSignIn.getCurrentUser();
             if(gUser)
                 setUser(gUser);*/
             return subscriber;   //Unsubscribe on unmount
         }catch(e){
+            console.log("Error when try to change Auth state: ");
             console.log(e);
         }
     }, []);
