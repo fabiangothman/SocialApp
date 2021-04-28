@@ -43,6 +43,7 @@
     "react-native-screens": "~2.15.2",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {

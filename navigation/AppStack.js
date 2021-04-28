@@ -11,6 +11,7 @@ import HomeScreen from '../screens/HomeScreen';
 import AddPostScreen from '../screens/AddPostScreen';
 import ChatScreen from '../screens/ChatScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import EditProfileScreen from '../screens/EditProfileScreen';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -61,6 +62,43 @@ const FeedStack = ({navigation}) => {
                     </View>
                 ),
             }} />
+
+            <Stack.Screen name="HomeProfile" component={ProfileScreen} options={{
+                title: '',
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: '#fff',
+                    shadowColor: '#fff',
+                    elevation: 0
+                },
+                headerBackTitleVisible: false,
+                headerBackImage: () => (
+                    <View style={{marginLeft: 15}}>
+                        <Ionicons name="arrow-back" size={25} color="#2e64e5" />
+                    </View>
+                ),
+            }} />
+        </Stack.Navigator>
+    );
+};
+
+const ProfileStack = ({navigation}) => {    
+    return (
+        <Stack.Navigator>
+            <Stack.Screen name="Profile" component={ProfileScreen} options={{
+                headerShown: false
+            }} />
+
+            <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{
+                headerTitle: 'Edit Profile',
+                headerBackTitleVisible: false,
+                headerTitleAlign: 'center',
+                headerStyle: {
+                    backgroundColor: '#fff',
+                    shadowColor: '#fff',
+                    elevation: 0
+                }
+            }} />
         </Stack.Navigator>
     );
 };
@@ -82,7 +120,7 @@ const AppStack = () => {
                 )
             }} />
 
-            <Tab.Screen name="Profile" component={ProfileScreen} options={{
+            <Tab.Screen name="Profile" component={ProfileStack} options={{
                 //tabBarLabel: 'Profile',
                 tabBarIcon: ({color, size}) => (
                     <Ionicons name="person-outline" color={color} size={size} />

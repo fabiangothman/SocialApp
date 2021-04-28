@@ -174,7 +174,7 @@ const HomeScreen = ({ navigation }) => {
                 <FlatList style={{width:'100%'}}
                     data={posts}
                     keyExtractor={item => item.id}
-                    renderItem={({item}) => <PostCard item={item} onDelete={handleDelete} /> }
+                    renderItem={({item}) => <PostCard item={item} onDelete={handleDelete} onPress={() => navigation.navigate('HomeProfile', {userId: item.userId})} /> }
                     ListHeaderComponent={ListHeader}
                     ListFooterComponent={ListHeader}
                     showsVerticalScrollIndicator={false} />
