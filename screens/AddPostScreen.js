@@ -113,7 +113,7 @@ const AddPostScreen = () => {
         const response = await fetch(uploadUri);
         const blob = await response.blob();
         //var ref = firebaseApp.storage().ref('photos/'+firebaseApp.auth().currentUser.uid+'/').child(fileName);
-        var ref = firebaseApp.storage().ref('photos/'+user.uid+'/').child(fileName);
+        var ref = firebaseApp.storage().ref(user.uid+'/posts/').child(fileName);
         var task = ref.put(blob);
         task.on('state_changed', taskSnapshot => {
             //console.log(`${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`);

@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import { firebaseApp } from '../server/firebase';
 import * as GoogleSignIn from 'expo-google-sign-in';
+import * as firebase from 'firebase';
 
 export const AuthContext = createContext();
 
@@ -47,6 +48,16 @@ export const AuthProvider = ({children}) => {
             register: async(email, password) => {
                 try{
                     await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+                    const userId = await firebaseApp.auth().currentUser.uid;
+                    await firebaseApp.firestore().collection('users').doc(userId).set({
+                        fname: '',
+                        lname: '',
+                        email: email,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        userImg: null,
+                    }).catch(error => {
+                        console.log('Something went wrong with added user to firestore: ', error);
+                    });
                 }catch(e){
                     console.log("Error when tried to register: ");
                     console.log(e);alert(e);
